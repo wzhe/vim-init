@@ -190,6 +190,15 @@ if index(g:bundle_group, 'tags') >= 0
 	" 支持光标移动到符号名上：<leader>cg 查看定义，<leader>cs 查看引用
 	Plug 'skywind3000/gutentags_plus'
 
+	"出错调试
+	"let g:gutentags_define_advanced_commands = 1
+	"允许 gutentags 打开一些高级命令和选项。然后打开你出错的源文件，
+	"运行 “:GutentagsToggleTrace”命令打开日志，
+	"它会将 ctags/gtags 命令的输出记录在 Vim 的 message 记录里。
+	"接着保存一下当前文件，触发 gtags 数据库更新，稍等片刻你应该能看到一些讨厌的日志输出，
+	"然后当你碰到问题时在 vim 里调用 ":messages" 命令列出所有消息记录，
+	"即可看到 gtags 的错误输出
+	
 	" 设定项目目录标志：除了 .git/.svn 外，还有 .root 文件
 	let g:gutentags_project_root = ['.root']
 	let g:gutentags_ctags_tagfile = '.tags'
