@@ -1,6 +1,6 @@
 "======================================================================
 "
-" init-plugins.vim - 
+" init-plugins.vim -
 "
 " Created by skywind on 2018/05/31
 " Last Modified: 2018/06/10 23:11
@@ -38,7 +38,7 @@ call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 
 
 "----------------------------------------------------------------------
-" 默认插件 
+" 默认插件
 "----------------------------------------------------------------------
 
 " 全文快速移动，<leader><leader>f{char} 即可触发
@@ -106,6 +106,9 @@ if index(g:bundle_group, 'basic') >= 0
 	" 用于在侧边符号栏显示 git/svn 的 diff
 	Plug 'mhinz/vim-signify'
 
+	" 高亮显示行尾空格,并提供FixWhitespace函数消除行尾空格
+	Plug 'bronson/vim-trailing-whitespace'
+
 	" 根据 quickfix 中匹配到的错误信息，高亮对应文件的错误行
 	" 使用 :RemoveErrorMarkers 命令或者 <space>ha 清除错误
 	Plug 'mh21/errormarker.vim'
@@ -169,7 +172,7 @@ if index(g:bundle_group, 'enhanced') >= 0
 
 	" 提供 gist 接口
 	Plug 'lambdalisue/vim-gista', { 'on': 'Gista' }
-	
+
 	" ALT_+/- 用于按分隔符扩大缩小 v 选区
 	map <m-=> <Plug>(expand_region_expand)
 	map <m--> <Plug>(expand_region_shrink)
@@ -198,7 +201,7 @@ if index(g:bundle_group, 'tags') >= 0
 	"接着保存一下当前文件，触发 gtags 数据库更新，稍等片刻你应该能看到一些讨厌的日志输出，
 	"然后当你碰到问题时在 vim 里调用 ":messages" 命令列出所有消息记录，
 	"即可看到 gtags 的错误输出
-	
+
 	" 设定项目目录标志：除了 .git/.svn 外，还有 .root 文件
 	let g:gutentags_project_root = ['.root']
 	let g:gutentags_ctags_tagfile = '.tags'
@@ -207,7 +210,7 @@ if index(g:bundle_group, 'tags') >= 0
 	let g:gutentags_cache_dir = expand('~/.cache/tags')
 
 	" 默认禁用自动生成
-	let g:gutentags_modules = [] 
+	let g:gutentags_modules = []
 
 	" 如果有 ctags 可执行就允许动态生成 ctags 文件
 	if executable('ctags')
@@ -237,7 +240,7 @@ endif
 " 文本对象：textobj 全家桶
 "----------------------------------------------------------------------
 if index(g:bundle_group, 'textobj')
-	
+
 	" 基础插件：提供让用户方便的自定义文本对象的接口
 	Plug 'kana/vim-textobj-user'
 
@@ -284,7 +287,7 @@ if index(g:bundle_group, 'filetypes') >= 0
 	" rust 语法增强
 	Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
-	" vim org-mode 
+	" vim org-mode
 	Plug 'jceb/vim-orgmode', { 'for': 'org' }
 endif
 
@@ -371,13 +374,13 @@ if index(g:bundle_group, 'ale') >= 0
 
 	" 编辑不同文件类型需要的语法检查器
 	let g:ale_linters = {
-				\ 'c': ['gcc', 'cppcheck'], 
-				\ 'cpp': ['gcc', 'cppcheck'], 
-				\ 'python': ['flake8', 'pylint'], 
-				\ 'lua': ['luac'], 
+				\ 'c': ['gcc', 'cppcheck'],
+				\ 'cpp': ['gcc', 'cppcheck'],
+				\ 'python': ['flake8', 'pylint'],
+				\ 'lua': ['luac'],
 				\ 'go': ['go build', 'gofmt'],
 				\ 'java': ['javac'],
-				\ 'javascript': ['eslint'], 
+				\ 'javascript': ['eslint'],
 				\ }
 
 
@@ -562,16 +565,16 @@ let g:ycm_semantic_triggers =  {
 "----------------------------------------------------------------------
 " Ycm 白名单（非名单内文件不启用 YCM），避免打开个 1MB 的 txt 分析半天
 "----------------------------------------------------------------------
-let g:ycm_filetype_whitelist = { 
+let g:ycm_filetype_whitelist = {
 			\ "c":1,
-			\ "cpp":1, 
+			\ "cpp":1,
 			\ "objc":1,
 			\ "objcpp":1,
 			\ "python":1,
 			\ "java":1,
 			\ "javascript":1,
 			\ "coffee":1,
-			\ "vim":1, 
+			\ "vim":1,
 			\ "go":1,
 			\ "cs":1,
 			\ "lua":1,

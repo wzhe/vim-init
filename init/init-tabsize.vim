@@ -26,10 +26,10 @@ set noet
 set softtabstop=4
 "set expandtab
 
-" 高亮显示任何行尾的空字符
-highlight WhiteSpaceEOL ctermbg=darkgreen guibg=lightgreen
-match WhiteSpaceEOL /\s$/
-autocmd WinEnter * match WhiteSpaceEOL /\s$/
+" 高亮显示任何行尾的空字符，使用了vim-trailing-whitespace插件，下面这个不需要了
+" highlight WhiteSpaceEOL ctermbg=darkgreen guibg=lightgreen
+" match WhiteSpaceEOL /\s$/
+" autocmd WinEnter * match WhiteSpaceEOL /\s$/
 
 
 augroup PythonTab
