@@ -41,8 +41,25 @@ call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 " 默认插件
 "----------------------------------------------------------------------
 
-" 全文快速移动，<leader><leader>f{char} 即可触发
+" 全文快速移动
 Plug 'easymotion/vim-easymotion'
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+"Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+"
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" Move to line
+map <Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader>l <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
 
 " 文件浏览器，代替 netrw
 Plug 'justinmk/vim-dirvish'
