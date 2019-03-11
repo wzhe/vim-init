@@ -296,6 +296,18 @@ if index(g:bundle_group, 'filetypes') >= 0
 	" Add spaces after comment delimiters by default
 	let g:NERDSpaceDelims = 1
 
+	" 对齐插件
+	Plug 'junegunn/vim-easy-align'
+	vmap <Leader>a <Plug>(EasyAlign)
+	nmap <Leader>a <Plug>(EasyAlign)
+	if !exists('g:easy_align_delimiters')
+	  let g:easy_align_delimiters = {}
+	endif
+	let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
+
+	" 代码格式化
+	Plug 'rhysd/vim-clang-format'
+
 	" powershell 脚本文件的语法高亮
 	Plug 'pprovost/vim-ps1', { 'for': 'ps1' }
 
