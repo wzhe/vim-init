@@ -142,6 +142,11 @@ if index(g:bundle_group, 'basic') >= 0
 	" 使用 ALT+E 来选择窗口
 	nmap <m-e> <Plug>(choosewin)
 
+	" 使用<Leader>j 跳转到定义
+	noremap <Leader>do :PreviewTag<cr>
+	noremap <Leader>dc :PreviewClose<cr>
+	noremap <Leader>de :PreviewGoto tabedit<cr>
+
 	" 默认不显示 startify
 	let g:startify_disable_at_vimenter = 1
 	let g:startify_session_dir = '~/.vim/session'
@@ -285,6 +290,23 @@ endif
 " 文件类型扩展
 "----------------------------------------------------------------------
 if index(g:bundle_group, 'filetypes') >= 0
+
+	" 快速注释
+	Plug 'scrooloose/nerdcommenter'
+	" Add spaces after comment delimiters by default
+	let g:NERDSpaceDelims = 1
+
+	" 对齐插件
+	Plug 'junegunn/vim-easy-align'
+	vmap <Leader>a <Plug>(EasyAlign)
+	nmap <Leader>a <Plug>(EasyAlign)
+	if !exists('g:easy_align_delimiters')
+	  let g:easy_align_delimiters = {}
+	endif
+	let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
+
+	" 代码格式化
+	Plug 'rhysd/vim-clang-format'
 
 	" powershell 脚本文件的语法高亮
 	Plug 'pprovost/vim-ps1', { 'for': 'ps1' }
